@@ -21,4 +21,15 @@ public class Alimentacao {
 
         alimentacoes.add(this);
     }
+
+    public static Alimentacao deleteAlimentacaoById (int id){
+        for (Alimentacao alimentacao : alimentacoes) {
+            if (alimentacao.id == id) {
+                Alimentacao.alimentacoes.remove(alimentacao);
+                return alimentacao;
+            }
+        }
+        
+        return null;
+    }
 }

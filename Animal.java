@@ -16,6 +16,8 @@ public abstract class Animal {
         this.id = id;
         this.nome = nome;
         this.especie = especie;
+
+        animais.add(this);
     }
 
     @Override
@@ -26,6 +28,17 @@ public abstract class Animal {
     public static Animal getAnimalById(int id) {
         for (Animal animal : Animal.animais) {
             if (animal.id == id) {
+                return animal;
+            }
+        }
+
+        return null;
+    }
+
+    public static Animal deleteAnimalById(int id) {
+        for (Animal animal : Animal.animais) {
+            if (animal.id == id) {
+                Animal.animais.remove(animal);
                 return animal;
             }
         }

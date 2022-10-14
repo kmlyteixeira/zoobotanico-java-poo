@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Mamiferos extends Animal {
     public String tempoGestacao;
     public ArrayList<Alimentacao> alimentacoes;
-    public Jaula jaula;
 
     public static ArrayList<Mamiferos> mamiferos = new ArrayList<Mamiferos>();
 
@@ -11,15 +10,14 @@ public class Mamiferos extends Animal {
         int id, 
         String nome, 
         String especie,
-        String tempoGestacao,
-        Jaula jaula
+        String tempoGestacao
     ) {
         super(id, nome, especie);
         this.tempoGestacao = tempoGestacao;
         this.alimentacoes = new ArrayList<Alimentacao>();
-        this.jaula = jaula;
 
         mamiferos.add(this);
+        super.animais.add(this);
     }
 
     @Override

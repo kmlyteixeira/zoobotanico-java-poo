@@ -21,18 +21,6 @@ public class Jaula {
         jaulas.add(this);
     }
 
-    public void validaAnimalJaula(Animal animal) {
-        if (this.tipo == "M" && animal instanceof Mamiferos) {
-            this.animais.add(animal);
-        } else if (this.tipo == "R" && animal instanceof Repteis) {
-            this.animais.add(animal);
-        } else if (this.tipo == "A" && animal instanceof Aves) {
-            this.animais.add(animal);
-        } else {
-            System.out.println("Animal não pertence a esta jaula!");
-        }
-    }
-
     @Override
     public String toString() {
         return "Id: " + this.id + " | Nome: " + this.nome + " | Tipo: " + this.tipo + " | Animais: " + this.animais;
@@ -46,5 +34,36 @@ public class Jaula {
         }
 
         return null;
+    }
+
+    public static Jaula deleteJaulaById(int id) {
+        for (Jaula jaula : Jaula.jaulas) {
+            if (jaula.id == id) {
+                Jaula.jaulas.remove(jaula);
+                return jaula;
+            }
+        }
+
+        return null;
+    }
+
+    public static boolean VerificaJaulaAnimal(Jaula jaula, Animal animal) {
+        boolean valida = true;
+
+        if (jaula.tipo != "M") {
+            if (!(animal instanceof Mamiferos)) {
+                valida = false;
+            } 
+        } else if (jaula.tipo != "A") {
+            if (!(animal instanceof Aves)) {
+                valida = false;
+            } 
+        } else if (jaula.tipo != "R") {
+            if (!(animal instanceof Repteis)) {
+                valida = false;
+            } 
+        } 
+
+        return valida;
     }
 }
