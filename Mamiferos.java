@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Mamiferos extends Animal {
-    public String tempoGestacao;
-    public ArrayList<Alimentacao> alimentacoes;
+    private String tempoGestacao;
+    private ArrayList<Alimentacao> alimentacoes;
 
     public static ArrayList<Mamiferos> mamiferos = new ArrayList<Mamiferos>();
 
@@ -20,8 +20,17 @@ public class Mamiferos extends Animal {
         super.animais.add(this);
     }
 
+    public String getTempoGestacao(){
+        return this.tempoGestacao;
+    }
+
+    public void setTempoGestacao(String tempoGestacao){
+        this.tempoGestacao = tempoGestacao;
+    }
+
     @Override
     public String toString() {
         return super.toString() + " | Tempo de gestação: " + this.tempoGestacao;
     }
+
 }

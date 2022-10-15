@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
 public abstract class Animal {
-    public int id;
-    public String nome;
-    public String especie;
-    public ArrayList<Alimentacao> alimentacoes;
+    private int id;
+    private String nome;
+    private String especie;
+    private ArrayList<Alimentacao> alimentacoes;
 
     public static ArrayList<Animal> animais = new ArrayList<Animal>();
 
@@ -20,9 +20,29 @@ public abstract class Animal {
         animais.add(this);
     }
 
+    public int getId(){
+        return this.id;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public String getEspecie(){
+        return this.especie;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
+    }
+
+    public void setEspecie(String especie){
+        this.especie = especie;
+    }
+
     @Override
     public String toString() {
-        return "Nome: " + this.nome + " | Especie: " + this.especie;
+        return "Id: " + this.id + " | Nome: " + this.nome + " | Especie: " + this.especie; 
     }
 
     public static Animal getAnimalById(int id) {
@@ -38,11 +58,18 @@ public abstract class Animal {
     public static Animal deleteAnimalById(int id) {
         for (Animal animal : Animal.animais) {
             if (animal.id == id) {
+                if (animal instanceof Mamiferos) {
+                    Mamiferos.mamiferos.remove(animal);
+                } else if (animal instanceof Aves) {
+                    Aves.aves.remove(animal);
+                } else if (animal instanceof Repteis) {
+                    Repteis.repteis.remove(animal);
+                }
+
                 Animal.animais.remove(animal);
                 return animal;
             }
         }
-
         return null;
     }
 }

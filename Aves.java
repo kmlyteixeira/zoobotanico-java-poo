@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class Aves extends Animal{
-    public String plumagem;
-    public ArrayList<Alimentacao> alimentacoes;
+    private String plumagem;
+    private ArrayList<Alimentacao> alimentacoes;
 
     public static ArrayList<Aves> aves = new ArrayList<Aves>();
 
@@ -18,6 +18,14 @@ public class Aves extends Animal{
 
         aves.add(this);
         super.animais.add(this);
+    }
+
+    public String getPlumagem(){
+        return this.plumagem;
+    }
+
+    public void setPlumagem(String plumagem){
+        this.plumagem = plumagem;
     }
 
     @Override

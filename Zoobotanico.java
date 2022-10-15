@@ -76,7 +76,7 @@ public class Zoobotanico {
         String tipoJaula = sc.next();
 
         Jaula jaula = new Jaula(Jaula.jaulas.size() + 1, nomeJaula, tipoJaula);
-        System.out.println("Jaula " + jaula.nome + " cadastrada!");
+        System.out.println("Jaula " + jaula.getNome() + " cadastrada!");
     }
 
     public static void CadastrarAnimal(Scanner sc) {
@@ -100,8 +100,8 @@ public class Zoobotanico {
                     Mamiferos mamifero = new Mamiferos(Mamiferos.mamiferos.size() + 1, nomeAnimal, especieAnimal,tempoGestacao);
 
                     if (Jaula.VerificaJaulaAnimal(jaulaMam, mamifero)){
-                        jaulaMam.animais.add(mamifero);
-                        System.out.println("Animal " + mamifero.nome + " cadastrado!");
+                        jaulaMam.getAnimais().add(mamifero);
+                        System.out.println("Animal " + mamifero.getNome() + " cadastrado!");
                     } else {
                         System.out.println("Jaula não encontrada ou não compatível com o tipo de animal!");
                     }
@@ -118,8 +118,8 @@ public class Zoobotanico {
                     Repteis repteis = new Repteis(Repteis.repteis.size() + 1, nomeAnimal, especieAnimal, tipoHabitat);
 
                     if (Jaula.VerificaJaulaAnimal(jaulaRep, repteis) ==  true){
-                        jaulaRep.animais.add(repteis);
-                        System.out.println("Animal " + repteis.nome + " cadastrado!");
+                        jaulaRep.getAnimais().add(repteis);
+                        System.out.println("Animal " + repteis.getNome() + " cadastrado!");
                     } else {
                         System.out.println("Jaula não encontrada ou não compatível com o tipo de animal!");
                     }
@@ -137,8 +137,8 @@ public class Zoobotanico {
                     Aves aves = new Aves(Aves.aves.size() + 1, nomeAnimal, especieAnimal, tipoPlumagem);
 
                     if (Jaula.VerificaJaulaAnimal(jaulaAve, aves) ==  true){
-                        jaulaAve.animais.add(aves);
-                        System.out.println("Animal " + aves.nome + " cadastrado!");
+                        jaulaAve.getAnimais().add(aves);
+                        System.out.println("Animal " + aves.getNome() + " cadastrado!");
                     } else {
                         System.out.println("Jaula não encontrada ou não compatível com o tipo de animal!");
                     }
@@ -167,7 +167,7 @@ public class Zoobotanico {
         try {
             Alimentacao alimentacao = new Alimentacao(Alimentacao.alimentacoes.size() + 1, dataAlimentacao,
                     descricaoAlimentacao, animalAlimentado);
-            System.out.println("Alimentação de " + alimentacao.data + " para o animal " + animalAlimentado.especie
+            System.out.println("Alimentação de " + alimentacao.data + " para o animal " + animalAlimentado.getEspecie()
                     + " cadastrada!");
 
         } catch (Exception e) {
@@ -184,21 +184,25 @@ public class Zoobotanico {
 
     public static void ListarAnimais() {
         System.out.println("==== Lista de Animais ====");
-        System.out.println("\nMAMÍFEROS");
-        for (Animal animais : Animal.animais) {
-            if (animais instanceof Mamiferos) {
-                System.out.println(animais.toString());
+        
+        if (Mamiferos.mamiferos.size() > 0) {
+            System.out.println("\nMAMÍFEROS");
+            for (Mamiferos mamiferos : Mamiferos.mamiferos) {
+                System.out.println(mamiferos.toString());
             }
         }
-        System.out.println("\nRÉPTEIS");
-        for (Animal animais : Animal.animais) {
-            if (animais instanceof Repteis) {
-                System.out.println(animais.toString());
+
+        if (Repteis.repteis.size() > 0) {
+            System.out.println("\nRÉPTEIS");
+            for (Repteis repteis : Repteis.repteis) {
+                System.out.println(repteis.toString());
             }
         }
-        for (Animal animais : Animal.animais) {
-            if (animais instanceof Repteis) {
-                System.out.println(animais.toString());
+
+        if (Aves.aves.size() > 0) {
+            System.out.println("\nAVES");
+            for (Aves aves : Aves.aves) {
+                System.out.println(aves.toString());
             }
         }
     }
@@ -217,8 +221,8 @@ public class Zoobotanico {
         Jaula jaula = Jaula.getJaulaById(idJaula);
         
         try {
-            Animal.deleteAnimalById(idJaula);
-            System.out.println("Jaula "+ jaula.nome +" excluída com sucesso!");
+            Jaula.deleteJaulaById(idJaula);
+            System.out.println("Jaula "+ jaula.getNome() +" excluída com sucesso!");
         } catch (Exception e) {
             System.out.println("Jaula não encontrada!");
         }
@@ -232,7 +236,7 @@ public class Zoobotanico {
 
         try {
             Animal.deleteAnimalById(idAnimal);
-            System.out.println("Animal "+ animal.nome +" excluído com sucesso!");
+            System.out.println("Animal "+ animal.getNome() +" excluído com sucesso!");
         } catch (Exception e) {
             System.out.println("Animal não encontrado!");
         }

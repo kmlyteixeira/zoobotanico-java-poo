@@ -20,6 +20,14 @@ public class Repteis extends Animal{
         super.animais.add(this);
     }
 
+    public String getHabitat(){
+        return this.habitat;
+    }
+
+    public void setHabitat(String habitat){
+        this.habitat = habitat;
+    }
+
     @Override
     public String toString() {
         return super.toString() + " | Habitat: " + this.habitat;
