@@ -1,17 +1,16 @@
 import java.util.ArrayList;
 
-public class Aves extends Animal{
+public class Aves extends Animal {
     private String plumagem;
     private ArrayList<Alimentacao> alimentacoes;
 
     public static ArrayList<Aves> aves = new ArrayList<Aves>();
 
-    public Aves (
-        int id, 
-        String nome, 
-        String especie,
-        String plumagem
-    ) {
+    public Aves(
+            int id,
+            String nome,
+            String especie,
+            String plumagem) {
         super(id, nome, especie);
         this.plumagem = plumagem;
         this.alimentacoes = new ArrayList<Alimentacao>();
@@ -20,11 +19,11 @@ public class Aves extends Animal{
         super.animais.add(this);
     }
 
-    public String getPlumagem(){
+    public String getPlumagem() {
         return this.plumagem;
     }
 
-    public void setPlumagem(String plumagem){
+    public void setPlumagem(String plumagem) {
         this.plumagem = plumagem;
     }
 

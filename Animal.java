@@ -8,11 +8,10 @@ public abstract class Animal {
 
     public static ArrayList<Animal> animais = new ArrayList<Animal>();
 
-    protected Animal (
-        int id, 
-        String nome, 
-        String especie
-    ) {
+    protected Animal(
+            int id,
+            String nome,
+            String especie) {
         this.id = id;
         this.nome = nome;
         this.especie = especie;
@@ -20,29 +19,29 @@ public abstract class Animal {
         animais.add(this);
     }
 
-    public int getId(){
+    public int getId() {
         return this.id;
     }
 
-    public String getNome(){
+    public String getNome() {
         return this.nome;
     }
 
-    public String getEspecie(){
+    public String getEspecie() {
         return this.especie;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setEspecie(String especie){
+    public void setEspecie(String especie) {
         this.especie = especie;
     }
 
     @Override
     public String toString() {
-        return "Id: " + this.id + " | Nome: " + this.nome + " | Especie: " + this.especie; 
+        return "Id: " + this.id + " | Nome: " + this.nome + " | Especie: " + this.especie;
     }
 
     public static Animal getAnimalById(int id) {

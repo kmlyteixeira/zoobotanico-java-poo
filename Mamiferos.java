@@ -6,12 +6,11 @@ public class Mamiferos extends Animal {
 
     public static ArrayList<Mamiferos> mamiferos = new ArrayList<Mamiferos>();
 
-    public Mamiferos (
-        int id, 
-        String nome, 
-        String especie,
-        String tempoGestacao
-    ) {
+    public Mamiferos(
+            int id,
+            String nome,
+            String especie,
+            String tempoGestacao) {
         super(id, nome, especie);
         this.tempoGestacao = tempoGestacao;
         this.alimentacoes = new ArrayList<Alimentacao>();
@@ -20,11 +19,11 @@ public class Mamiferos extends Animal {
         super.animais.add(this);
     }
 
-    public String getTempoGestacao(){
+    public String getTempoGestacao() {
         return this.tempoGestacao;
     }
 
-    public void setTempoGestacao(String tempoGestacao){
+    public void setTempoGestacao(String tempoGestacao) {
         this.tempoGestacao = tempoGestacao;
     }
 

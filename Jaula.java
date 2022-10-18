@@ -8,11 +8,10 @@ public class Jaula {
 
     public static ArrayList<Jaula> jaulas = new ArrayList<Jaula>();
 
-    public Jaula (
-        int id, 
-        String nome, 
-        String tipo
-    ) {
+    public Jaula(
+            int id,
+            String nome,
+            String tipo) {
         this.id = id;
         this.nome = nome;
         this.tipo = tipo;
@@ -21,31 +20,31 @@ public class Jaula {
         jaulas.add(this);
     }
 
-    public int getId(){
+    public int getId() {
         return this.id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getNome(){
+    public String getNome() {
         return this.nome;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getTipo(){
+    public String getTipo() {
         return this.tipo;
     }
 
-    public void setTipo(String tipo){
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    public ArrayList<Animal> getAnimais(){
+    public ArrayList<Animal> getAnimais() {
         return this.animais;
     }
 
@@ -81,16 +80,16 @@ public class Jaula {
         if (jaula.tipo == "M") {
             if (!(animal instanceof Mamiferos)) {
                 valida = false;
-            } 
+            }
         } else if (jaula.tipo == "A") {
             if (!(animal instanceof Aves)) {
                 valida = false;
-            } 
+            }
         } else if (jaula.tipo == "R") {
             if (!(animal instanceof Repteis)) {
                 valida = false;
-            } 
-        } 
+            }
+        }
 
         return valida;
     }
